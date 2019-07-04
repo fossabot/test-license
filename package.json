@@ -1,0 +1,112 @@
+{
+    "name": "test-license",
+    "version": "1.0",
+    "description": "",
+    "author": "Leiko",
+    "license": "MIT",
+    "private": true,
+    "engines": {
+      "node": ">= 8.11.1",
+      "npm": ">= 5.6.0"
+    },
+    "dependencies": {
+      "@emotion/core": "10.0.10",
+      "@emotion/styled": "10.0.10",
+      "async": "3.0.1",
+      "axios": "0.19.0",
+      "chart.js": "2.8.0",
+      "core-js": "^3.1.3",
+      "emotion-theming": "10.0.10",
+      "konva": "3.2.5",
+      "lodash.debounce": "4.0.8",
+      "lodash.omit": "4.5.0",
+      "lodash.union": "4.6.0",
+      "mime-types": "2.1.21",
+      "moment": "2.24.0",
+      "monaco-editor": "0.17.0",
+      "normalizr": "3.3.0",
+      "polished": "2.3.3",
+      "prop-types": "15.7.2",
+      "react": "16.8.6",
+      "react-chartjs-2": "2.7.6",
+      "react-clickable-hoc": "1.1.0",
+      "react-custom-scrollbars": "4.2.1",
+      "react-datetime": "2.16.3",
+      "react-dom": "16.8.6",
+      "react-konva": "16.8.6",
+      "react-portal": "4.2.0",
+      "react-redux": "7.0.3",
+      "react-scripts": "3.0.1",
+      "react-virtualized-auto-sizer": "1.0.2",
+      "react-window": "1.8.1",
+      "recompose": "0.30.0",
+      "redux": "4.0.1",
+      "redux-first-router": "2.1.1",
+      "redux-thunk": "2.3.0",
+      "reselect": "4.0.0",
+      "sprintf-js": "1.1.2"
+    },
+    "devDependencies": {
+      "@neilbryson/eslint-config": "^1.2.0",
+      "@testing-library/react": "~8.0.1",
+      "enzyme": "^3.10.0",
+      "enzyme-adapter-react-16": "^1.10.0",
+      "eslint": "^5.16.0",
+      "eslint-plugin-compat": "^2.6.3",
+      "husky": "~2.4.1",
+      "jest-environment-enzyme": "^7.0.1",
+      "jest-enzyme": "^7.0.1",
+      "lint-staged": "^8.1.7",
+      "prettier-eslint": "~9.0.0",
+      "prettier-eslint-cli": "~5.0.0",
+      "react-app-polyfill": "~1.0.0",
+      "react-app-rewired": "2.1.3",
+      "react-axe": "~3.1.0",
+      "redux-mock-store": "^1.5.3",
+      "source-map-explorer": "^1.6.0",
+      "worker-loader": "2.0.0"
+    },
+    "scripts": {
+      "analyze": "source-map-explorer build/static/js/main.*",
+      "build": "react-app-rewired build",
+      "eject": "react-scripts eject",
+      "start": "react-app-rewired start",
+      "test": "react-app-rewired test --transformIgnorePatterns \"node_modules/(?!monaco-editor)/\"",
+      "test:coverage": "npm test -- --coverage --silent --watchAll"
+    },
+    "husky": {
+      "hooks": {
+        "pre-commit": "lint-staged",
+        "post-install": "node ./scripts/requirements-check.js"
+      }
+    },
+    "lint-staged": {
+      "src/**/*.{js,jsx,css}": [
+        "prettier-eslint --single-quote --trailing-comma \"es5\" --semi true --eslint-config-path ./.eslintrc --write",
+        "git add"
+      ]
+    },
+    "browserslist": [],
+    "jest": {
+      "collectCoverageFrom": [
+        "src/**/*.{js,jsx}",
+        "!src/{assets,commonui,config,constants,modules,styles}/**",
+        "!src/{index,registerServiceWorker}.js",
+        "!src/components/CodeEditor.js",
+        "!<rootDir>/node_modules/"
+      ],
+      "coverageReporters": [
+        "text",
+        "text-summary"
+      ],
+      "coverageThreshold": {
+        "global": {
+          "branches": 80,
+          "functions": 80,
+          "lines": 80,
+          "statements": 80
+        }
+      }
+    }
+  }
+  
